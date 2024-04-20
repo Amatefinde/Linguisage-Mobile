@@ -13,8 +13,8 @@ export default function AuthenticationLayout() {
                 },
             }}
         >
-            <Stack.Screen name="sign-in" options={{}} />
-            <Stack.Screen name="sign-up" options={{}} />
+            <Stack.Screen name="sign-in" options={{ headerShown: false }} />
+            <Stack.Screen name="sign-up" options={{ headerShown: false }} />
         </Stack>
     );
 }

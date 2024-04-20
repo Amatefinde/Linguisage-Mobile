@@ -20,9 +20,9 @@ const Index = () => {
         <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <View>
                 <Text>Hello, World! Ебать рот я рпрограмит</Text>
-                {/*<Link href="/(authentication)/sign-in" asChild>*/}
-                <Button title="хуй" onPress={doLogin} />
-                {/*</Link>*/}
+                <Link href="/(authentication)/sign-in" asChild>
+                    <Button title="хуй" onPress={doLogin} />
+                </Link>
             </View>
         </SafeAreaView>
     );
