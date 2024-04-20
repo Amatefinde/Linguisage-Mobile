@@ -20,6 +20,7 @@
     "@tamagui/babel-plugin": "^1.94.5",
     "@tamagui/config": "^1.94.5",
     "@tamagui/metro-plugin": "^1.94.5",
+    "@types/qs": "^6.9.15",
     "axios": "0.24.0",
     "babel-preset-expo": "^10.0.1",
     "expo": "~50.0.6",

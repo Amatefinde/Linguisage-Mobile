@@ -5047,6 +5047,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/qs@npm:^6.9.15":
+  version: 6.9.15
+  resolution: "@types/qs@npm:6.9.15"
+  checksum: 97d8208c2b82013b618e7a9fc14df6bd40a73e1385ac479b6896bafc7949a46201c15f42afd06e86a05e914f146f495f606b6fb65610cc60cf2e0ff743ec38a2
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:~18.2.14":
   version: 18.2.47
   resolution: "@types/react@npm:18.2.47"
@@ -8949,6 +8956,7 @@ __metadata:
     "@tamagui/babel-plugin": "npm:^1.94.5"
     "@tamagui/config": "npm:^1.94.5"
     "@tamagui/metro-plugin": "npm:^1.94.5"
+    "@types/qs": "npm:^6.9.15"
     "@types/react": "npm:~18.2.14"
     axios: "npm:0.24.0"
     babel-preset-expo: "npm:^10.0.1"

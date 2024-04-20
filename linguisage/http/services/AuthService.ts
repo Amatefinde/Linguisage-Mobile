@@ -1,4 +1,4 @@
-import $api from "../index.ts";
+import $api from "../index";
 import IUser from "../../types/IUser";
 
 interface LoginResponse {
