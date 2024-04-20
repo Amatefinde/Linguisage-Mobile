@@ -5467,6 +5467,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axios@npm:0.24.0":
+  version: 0.24.0
+  resolution: "axios@npm:0.24.0"
+  dependencies:
+    follow-redirects: "npm:^1.14.4"
+  checksum: 4c5a7a5a45c909b4ce73fbf54b1fbc52a2290fc37cc51e64f8ef2ba8ac5f76a2e369a08ddfd7ec50317528d5aa55f5987cc56fb320923ef87e1b87f8ff05b5ba
+  languageName: node
+  linkType: hard
+
 "babel-core@npm:^7.0.0-bridge.0":
   version: 7.0.0-bridge.0
   resolution: "babel-core@npm:7.0.0-bridge.0"
@@ -7400,6 +7409,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"follow-redirects@npm:0.0.7":
+  version: 0.0.7
+  resolution: "follow-redirects@npm:0.0.7"
+  dependencies:
+    debug: "npm:^2.2.0"
+    stream-consume: "npm:^0.1.0"
+  checksum: 536506cf0159ae21603029c141bf940cfb210a41a27da2808fc68b9ee81629d123c945229f4da73441fc46575b13c40f51eb7e50ccd9c3e8c383cfce175a7ba1
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.4":
+  version: 1.15.6
+  resolution: "follow-redirects@npm:1.15.6"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 70c7612c4cab18e546e36b991bbf8009a1a41cf85354afe04b113d1117569abf760269409cb3eb842d9f7b03d62826687086b081c566ea7b1e6613cf29030bf7
+  languageName: node
+  linkType: hard
+
 "fontfaceobserver@npm:^2.1.0":
   version: 2.3.0
   resolution: "fontfaceobserver@npm:2.3.0"
@@ -8921,6 +8950,7 @@ __metadata:
     "@tamagui/config": "npm:^1.94.5"
     "@tamagui/metro-plugin": "npm:^1.94.5"
     "@types/react": "npm:~18.2.14"
+    axios: "npm:0.24.0"
     babel-preset-expo: "npm:^10.0.1"
     expo: "npm:~50.0.6"
     expo-font: "npm:~11.10.2"
@@ -8934,6 +8964,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-helmet-async: "npm:~2.0.4"
     react-native: "npm:0.73.4"
+    react-native-axios: "npm:^0.17.1"
     react-native-reanimated: "npm:~3.6.2"
     react-native-safe-area-context: "npm:4.8.2"
     react-native-screens: "npm:~3.29.0"
@@ -10634,6 +10665,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-axios@npm:^0.17.1":
+  version: 0.17.1
+  resolution: "react-native-axios@npm:0.17.1"
+  dependencies:
+    follow-redirects: "npm:0.0.7"
+  checksum: 1bb3c05253daf85839af80557e8921daa24f46d9924e3d6f67cf74828fe9931c4115a57aad7b7c2e9e45def866249b3f2e488887c484e8df6d4e235f207360a3
+  languageName: node
+  linkType: hard
+
 "react-native-css-interop@npm:~0.0.21":
   version: 0.0.21
   resolution: "react-native-css-interop@npm:0.0.21"
@@ -11731,6 +11771,13 @@ __metadata:
   version: 2.2.0
   resolution: "stream-buffers@npm:2.2.0"
   checksum: 79f897cead810383b4181e4ee56f4855a69b51c9da4c96b91ccca6ee6fe90b908bea9b304225bedd1a5e2c41d72bc88d3ada7f897b51f8ffae3593f7460ecbc8
+  languageName: node
+  linkType: hard
+
+"stream-consume@npm:^0.1.0":
+  version: 0.1.1
+  resolution: "stream-consume@npm:0.1.1"
+  checksum: 2bea011dd81018a9301ac6d96750783d91a62ed7d21a8e557d6fc3cfe98f76603e52d8672a008f4206b2f3408d1829e218372c2b4c4a83cad1dd3c6a03785f58
   languageName: node
   linkType: hard
 

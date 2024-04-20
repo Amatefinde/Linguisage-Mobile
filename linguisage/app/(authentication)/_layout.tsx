@@ -1,9 +1,20 @@
-import { Link, Tabs } from 'expo-router'
-import {Pressable, SafeAreaView} from 'react-native'
-import {Text, View} from 'tamagui'
+import { Link, Stack } from "expo-router";
 
-export default function TabLayout() {
-  return (
-    <SafeAreaView><Text>Authentic</Text></SafeAreaView>
-  )
+export default function AuthenticationLayout() {
+    return (
+        <Stack
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: "#f4511e",
+                },
+                headerTintColor: "#fff",
+                headerTitleStyle: {
+                    fontWeight: "bold",
+                },
+            }}
+        >
+            <Stack.Screen name="sign-in" options={{}} />
+            <Stack.Screen name="sign-up" options={{}} />
+        </Stack>
+    );
 }
