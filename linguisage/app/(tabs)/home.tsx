@@ -1,6 +1,7 @@
 import { Text, View, ScrollView, YStack } from "tamagui";
 import { SafeAreaView, ScrollViewComponent } from "react-native";
 import LastLiterature from "../../components/LastLiterature";
+import WordCards from "../../components/WordCards";
 
 export default function TabOneScreen() {
     return (
@@ -8,7 +9,9 @@ export default function TabOneScreen() {
             marginTop={100}
             contentContainerStyle={{ display: "flex", justifyContent: "center" }}
         >
-            <YStack style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+            <YStack
+                style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: 20 }}
+            >
                 <LastLiterature
                     animation="bouncy"
                     size="$4"
@@ -18,6 +21,8 @@ export default function TabOneScreen() {
                     hoverStyle={{ scale: 0.925 }}
                     pressStyle={{ scale: 0.875 }}
                 />
+
+                <WordCards width="95%" />
             </YStack>
         </ScrollView>
     );

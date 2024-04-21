@@ -15,7 +15,7 @@ export default class TrainService {
 
     static async getTrain(
         totalAmountOfWords: number,
-        percentOfStudiedWords: number,
+        percentOfStudiedWords: number = 0,
     ): Promise<IUserSenses> {
         const params = {
             total_amount_of_words: totalAmountOfWords,

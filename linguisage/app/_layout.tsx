@@ -1,7 +1,7 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { SplashScreen, Stack } from "expo-router";
 import { useColorScheme } from "react-native";
-import { TamaguiProvider } from "tamagui";
+import { TamaguiProvider, Theme } from "tamagui";
 import { Provider } from "react-redux";
 import "../tamagui-web.css";
 
@@ -53,7 +53,7 @@ function RootLayoutNav() {
                         <Stack.Screen name="index" options={{ headerShown: false }} />
                         <Stack.Screen name="(authentication)" options={{ headerShown: false }} />
                         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                        {/*<Stack.Screen name="modal" options={{ presentation: "modal" }} />*/}
+                        <Stack.Screen name="modal-add-word" options={{ presentation: "modal" }} />
                     </Stack>
                 </Provider>
             </ThemeProvider>

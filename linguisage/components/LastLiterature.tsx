@@ -23,7 +23,7 @@ const LastLiterature = (props: CardProps) => {
     }, []);
 
     const component = (
-        <Card size="$4" {...props}>
+        <Card size="$4" {...props} borderRadius={20}>
             <XStack
                 height="100%"
                 padding={15}

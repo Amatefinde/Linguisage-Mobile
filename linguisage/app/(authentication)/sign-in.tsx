@@ -38,7 +38,7 @@ const SignInScreen = () => {
             if (user.is_verified) {
                 router.push("/(tabs)/home");
             } else {
-                router.push("/(tabs)/two");
+                router.push("/(authentication)/verification");
             }
             // @ts-ignore
         } catch (error: AxiosError) {

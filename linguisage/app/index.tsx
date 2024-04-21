@@ -13,9 +13,9 @@ const Index = () => {
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
             <View>
-                <Text>Hello, World! Ебать рот я рпрограмит</Text>
+                <Text>Hello</Text>
                 <Link href="/(authentication)/sign-in" asChild>
-                    <Button title="хуй" />
+                    <Button title="huj" />
                 </Link>
             </View>
         </SafeAreaView>
