@@ -1,33 +1,47 @@
 import { Link, Tabs } from "expo-router";
-import { Pressable } from "react-native";
-import { Text } from "tamagui";
+import { Home, BookOpen, Target } from "@tamagui/lucide-icons";
 
 export default function TabLayout() {
     return (
         <Tabs
             screenOptions={{
-                tabBarActiveTintColor: "red",
+                tabBarActiveTintColor: "#5e8deb", // Цвет активной иконки
+                tabBarInactiveTintColor: "#333", // Цвет неактивной иконки
+                tabBarLabelStyle: { fontSize: 16, fontWeight: "bold", padding: 10 }, // Увеличенный размер шрифта и жирный текст
+                tabBarStyle: {
+                    height: 65,
+                    padding: 15,
+                },
             }}
         >
             <Tabs.Screen
-                name="one"
+                name="home"
                 options={{
-                    title: "Tab One",
-                    tabBarIcon: ({ color }) => <Text>Hello!</Text>,
-                    headerRight: () => (
-                        <Link href="/modal" asChild>
-                            <Pressable>
-                                <Text>Hello!</Text>
-                            </Pressable>
-                        </Link>
-                    ),
+                    headerShown: false,
+                    title: "Home",
+                    tabBarIcon: ({ color, focused }) => (
+                        <Home color={focused ? "#5e8deb" : "#333"} />
+                    ), // Изменение цвета иконки
                 }}
             />
             <Tabs.Screen
-                name="two"
+                name="dictionary"
                 options={{
-                    title: "Tab Two",
-                    tabBarIcon: ({ color }) => <Text>Hello!</Text>,
+                    headerShown: false,
+                    title: "Dictionary",
+                    tabBarIcon: ({ color, focused }) => (
+                        <BookOpen color={focused ? "#5e8deb" : "#333"} />
+                    ), // Изменение цвета иконки
+                }}
+            />
+            <Tabs.Screen
+                name="pre-training"
+                options={{
+                    title: "Training",
+                    headerShown: false,
+                    tabBarIcon: ({ color, focused }) => (
+                        <Target color={focused ? "#5e8deb" : "#333"} />
+                    ), // Изменение цвета иконки
                 }}
             />
         </Tabs>

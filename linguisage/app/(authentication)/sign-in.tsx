@@ -36,7 +36,7 @@ const SignInScreen = () => {
             await storeData(response.access_token);
             const user: IUser = await AuthService.me();
             if (user.is_verified) {
-                router.push("/(tabs)/one");
+                router.push("/(tabs)/home");
             } else {
                 router.push("/(tabs)/two");
             }
