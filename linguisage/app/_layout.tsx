@@ -53,7 +53,10 @@ function RootLayoutNav() {
                         <Stack.Screen name="index" options={{ headerShown: false }} />
                         <Stack.Screen name="(authentication)" options={{ headerShown: false }} />
                         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                        <Stack.Screen name="modal-add-word" options={{ presentation: "modal" }} />
+                        <Stack.Screen
+                            name="modal-add-word"
+                            options={{ presentation: "modal", title: "Add word" }}
+                        />
                     </Stack>
                 </Provider>
             </ThemeProvider>
