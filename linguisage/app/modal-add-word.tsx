@@ -8,11 +8,14 @@ const ModalAddWord = () => {
     const [wordData, setWordData] = useState<IWordData>();
     const [query, setQuery] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
+    const [timer, setTimer] = useState<NodeJS.Timeout | undefined>(undefined);
 
     async function fetchWordData() {
-        setIsLoading(true);
         try {
+            if (query.trim() === "") {
+                return;
+            }
+            setIsLoading(true);
             console.log(`фетчим слово ${query}`);
             const fetchedWordData = await WordService.searchWord(query);
             setWordData(fetchedWordData);
