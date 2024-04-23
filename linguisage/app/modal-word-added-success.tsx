@@ -6,7 +6,7 @@ import useBack from "../hooks/useBack";
 const ModalWordAddedSuccess = () => {
     const router = useRouter();
 
-    useBack(() => router.push("/modal-add-word"));
+    useBack(() => router.replace("/modal-add-word"));
 
     return (
         <View>

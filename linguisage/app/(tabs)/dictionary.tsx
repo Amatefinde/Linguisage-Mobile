@@ -1,9 +1,12 @@
 import { Text, View } from "tamagui";
+import DictionaryManagement from "../../components/Dictionary/DictionaryManagement/DictionaryManagement";
+import DictionaryContent from "../../components/Dictionary/DictionaryContent/DictionaryContent";
 
-export default function TabTwoScreen() {
+export default function DictionaryScreen() {
     return (
-        <View marginTop={50} alignItems="center">
-            <Text fontSize={20}>Dictionary page</Text>
+        <View marginTop={25} alignItems="center">
+            <DictionaryManagement />
+            <DictionaryContent />
         </View>
     );
 }

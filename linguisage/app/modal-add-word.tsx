@@ -14,8 +14,6 @@ const ModalAddWord = () => {
     const [condition, setCondition] = useState<"loading" | "not_found" | "ok" | "initial">(
         "initial",
     );
-    const router = useRouter();
-    useBack(() => router.push("/(tabs)/home"));
 
     async function fetchWordData() {
         try {

@@ -16,7 +16,11 @@ const WordDefinitions: React.FC<IWordDefinitionsProps> = ({ wordData, setPickedS
                     <FullSenseCard
                         sense={sense}
                         key={sense.f_sense_id}
-                        cardProps={{ onPress: () => setPickedSenseFId(sense.f_sense_id) }}
+                        cardProps={{
+                            onPress: sense.in_user_dictionary
+                                ? undefined
+                                : () => setPickedSenseFId(sense.f_sense_id),
+                        }}
                     />
                 ))}
             </View>

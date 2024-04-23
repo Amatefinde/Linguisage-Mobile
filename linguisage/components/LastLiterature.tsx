@@ -5,26 +5,27 @@ import BookService from "../http/services/BookService";
 import IBook from "../types/IBook";
 
 interface ILastLiteratureProps {
-    setIsLiteratureLoading: React.Dispatch<React.SetStateAction<boolean>>;
-    isLiteratureLoading: boolean;
+    setIsLastBookLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    isLastBookLoading: boolean;
+    updateSignal: boolean;
 }
 
 const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
     const [lastBook, setLastBook] = useState<IBook>();
     useEffect(() => {
         async function fetchLastBook() {
-            props.setIsLiteratureLoading(true);
+            props.setIsLastBookLoading(true);
             try {
                 const fetchedLastBook = await BookService.getLastBook();
                 setLastBook(fetchedLastBook);
             } catch (e) {
                 console.log("Во время фетча последней книги произошла ошибка");
             }
-            props.setIsLiteratureLoading(false);
+            props.setIsLastBookLoading(false);
         }
 
         fetchLastBook();
-    }, []);
+    }, [props.updateSignal]);
 
     const component = (
         <Card size="$4" {...props} borderRadius={20}>
@@ -52,7 +53,7 @@ const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
             </XStack>
         </Card>
     );
-    return props.isLiteratureLoading || component;
+    return props.isLastBookLoading || component;
 };
 
 export default LastLiterature;

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Button, Image, ScrollView, useTheme, View } from "tamagui";
 import type { IWordData, IWordImage } from "../../types/WordInterface";
+import { useFocusEffect } from "expo-router";
+import { BackHandler } from "react-native";
 
 interface IWordImagesProps {
     wordData: IWordData;
     setPickedWordImages: React.Dispatch<React.SetStateAction<number[]>>;
+    setPickedSenseFId: React.Dispatch<React.SetStateAction<number | undefined>>;
     setIsAllPicked: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
@@ -12,9 +15,26 @@ const WordImages: React.FC<IWordImagesProps> = ({
     wordData,
     setPickedWordImages,
     setIsAllPicked,
+    setPickedSenseFId,
 }) => {
     const [tmpPickedImageIds, setTmpPickedImageIds] = useState<number[]>([]);
     const theme = useTheme();
+
+    useFocusEffect(
+        React.useCallback(() => {
+            const onBackPress = () => {
+                setPickedSenseFId(undefined);
+                return true;
+                // Запретить действие по умолчанию
+            };
+
+            // Добавляем обработчик на событие нажатия кнопки "Назад"
+            BackHandler.addEventListener("hardwareBackPress", onBackPress);
+
+            // Функция очистки, которая удаляет обработчик при размонтировании экрана
+            return () => BackHandler.removeEventListener("hardwareBackPress", onBackPress);
+        }, []),
+    );
 
     function handleImageClick(fImgID: number) {
         if (tmpPickedImageIds.includes(fImgID)) {

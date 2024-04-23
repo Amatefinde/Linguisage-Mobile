@@ -54,6 +54,10 @@ function RootLayoutNav() {
                             name="modal-word-added-success"
                             options={{ title: "Word added success" }}
                         />
+                        <Stack.Screen
+                            name="modal-full-sense-card"
+                            options={{ headerShown: false }}
+                        />
                     </Stack>
                 </Provider>
             </ThemeProvider>
