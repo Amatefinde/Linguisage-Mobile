@@ -15,7 +15,7 @@ export default function useAutoAuth() {
                 const user: IUser = await AuthService.me();
                 if (user.is_verified) {
                     dispatch(setUser(user));
-                    router.push("/(tabs)/home");
+                    router.replace("/(tabs)/home");
                 } else {
                     router.push("/(authentication)/verification");
                 }

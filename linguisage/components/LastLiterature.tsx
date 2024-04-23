@@ -4,19 +4,23 @@ import type { CardProps } from "tamagui";
 import BookService from "../http/services/BookService";
 import IBook from "../types/IBook";
 
-const LastLiterature = (props: CardProps) => {
-    const [isLoading, setIsLoading] = useState(false);
+interface ILastLiteratureProps {
+    setIsLiteratureLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    isLiteratureLoading: boolean;
+}
+
+const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
     const [lastBook, setLastBook] = useState<IBook>();
     useEffect(() => {
         async function fetchLastBook() {
-            setIsLoading(true);
+            props.setIsLiteratureLoading(true);
             try {
                 const fetchedLastBook = await BookService.getLastBook();
                 setLastBook(fetchedLastBook);
             } catch (e) {
                 console.log("Во время фетча последней книги произошла ошибка");
             }
-            setIsLoading(false);
+            props.setIsLiteratureLoading(false);
         }
 
         fetchLastBook();
@@ -48,7 +52,7 @@ const LastLiterature = (props: CardProps) => {
             </XStack>
         </Card>
     );
-    return isLoading || component;
+    return props.isLiteratureLoading || component;
 };
 
 export default LastLiterature;

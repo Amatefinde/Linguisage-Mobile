@@ -10,13 +10,9 @@ import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { store } from "../store";
 
-export {
-    // Catch any errors thrown by the Layout component.
-    ErrorBoundary,
-} from "expo-router";
-
+export { ErrorBoundary } from "expo-router";
 export const unstable_settings = {
-    initialRouteName: "(authentication)",
+    initialRouteName: "(tabs)",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -53,9 +49,10 @@ function RootLayoutNav() {
                         <Stack.Screen name="index" options={{ headerShown: false }} />
                         <Stack.Screen name="(authentication)" options={{ headerShown: false }} />
                         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                        <Stack.Screen name="modal-add-word" options={{ title: "Add word" }} />
                         <Stack.Screen
-                            name="modal-add-word"
-                            options={{ presentation: "modal", title: "Add word" }}
+                            name="modal-word-added-success"
+                            options={{ title: "Word added success" }}
                         />
                     </Stack>
                 </Provider>
