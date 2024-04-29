@@ -19,7 +19,7 @@ const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
                 const fetchedLastBook = await BookService.getLastBook();
                 setLastBook(fetchedLastBook);
             } catch (e) {
-                console.log("Во время фетча последней книги произошла ошибка");
+                console.log("Во время фетча последней книги произошла ошибка", e);
             }
             props.setIsLastBookLoading(false);
         }

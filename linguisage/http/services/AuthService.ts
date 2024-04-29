@@ -20,13 +20,11 @@ export default class AuthService {
             .then((response) => response.data);
     }
 
-    // static async logout(): Promise<void> {
-    //     return $api.post("auth/logout").then((response) => {
-    //         localStorage.removeItem("token");
-    //         localStorage.removeItem("email");
-    //         return response.data;
-    //     });
-    // }
+    static async logout(): Promise<void> {
+        return $api.post("auth/logout").then((response) => {
+            return response.data;
+        });
+    }
 
     static async me(): Promise<IUser> {
         return $api.get("auth/me").then((response) => response.data);

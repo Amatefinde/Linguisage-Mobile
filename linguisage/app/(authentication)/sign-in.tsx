@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
-import { Input, Form, Button, View, Text, Label, H1, SizableText, Stack } from "tamagui";
+import { Input, Form, Button, View, Text, Label, H1, SizableText, Stack, Spinner } from "tamagui";
 import { Link, useRouter } from "expo-router";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import AuthService from "../../http/services/AuthService";
@@ -14,6 +14,7 @@ const SignInScreen = () => {
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState<PasswordErrorType>(null);
     const [emailError, setEmailError] = useState<EmailErrorType>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const router = useRouter();
     const storeData = async (token: string) => {
         try {
@@ -31,7 +32,9 @@ const SignInScreen = () => {
         if (validateEmail(email) || validatePassword(password)) {
             return;
         }
+
         try {
+            setIsSubmitting(true);
             const response = await AuthService.login(email, password);
             await storeData(response.access_token);
             const user: IUser = await AuthService.me();
@@ -48,6 +51,8 @@ const SignInScreen = () => {
             } else {
                 console.error("Ошибка при входе в аккаунт:", error.message);
             }
+        } finally {
+            setIsSubmitting(false);
         }
     }
 
@@ -72,6 +77,7 @@ const SignInScreen = () => {
                             placeholder="Password"
                             value={password}
                             onChangeText={setPassword}
+                            autoCapitalize="none"
                             secureTextEntry
                         />
                         {passwordError && (
@@ -80,7 +86,10 @@ const SignInScreen = () => {
                             </SizableText>
                         )}
                     </Stack>
-                    <Button onPress={handleLogin}>
+                    <Button
+                        onPress={handleLogin}
+                        icon={isSubmitting ? () => <Spinner /> : undefined}
+                    >
                         <Text>Login</Text>
                     </Button>
                 </Form>

@@ -1,5 +1,6 @@
 import { Link, Tabs } from "expo-router";
-import { Home, BookOpen, Target } from "@tamagui/lucide-icons";
+
+import { Home, BookOpen, Target, Settings } from "@tamagui/lucide-icons";
 
 export default function TabLayout() {
     return (
@@ -41,6 +42,16 @@ export default function TabLayout() {
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <Target color={focused ? "#5e8deb" : "#333"} />
+                    ), // Изменение цвета иконки
+                }}
+            />
+            <Tabs.Screen
+                name="settings"
+                options={{
+                    title: "Settings",
+                    headerShown: false,
+                    tabBarIcon: ({ color, focused }) => (
+                        <Settings color={focused ? "#5e8deb" : "#333"} />
                     ), // Изменение цвета иконки
                 }}
             />

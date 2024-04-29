@@ -23,15 +23,13 @@ const SignUpScreen = () => {
                 </View>
                 <Form onSubmit={handleLogin} gap={20} marginBottom={24} width={"80%"}>
                     <Input placeholder="Username" value={username} onChangeText={setUsername} />
-                    <SizableText theme="alt2" size="$3">
-                        alt2
-                    </SizableText>
                     <Input placeholder="Email" value={email} onChangeText={setEmail} />
                     <Input
                         placeholder="Password"
                         value={password}
                         onChangeText={setPassword}
                         secureTextEntry
+                        autoCapitalize="none"
                     />
                     <Button onPress={handleLogin}>
                         <Text>Sign Up</Text>

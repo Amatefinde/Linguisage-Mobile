@@ -19,7 +19,9 @@ export default function useAutoAuth() {
                 } else {
                     router.push("/(authentication)/verification");
                 }
-            } catch (error) {}
+            } catch (error) {
+                router.push("/(authentication)/sign-in");
+            }
         };
         auth();
     }, []);
