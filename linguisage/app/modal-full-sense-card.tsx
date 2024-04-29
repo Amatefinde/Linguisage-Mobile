@@ -1,17 +1,36 @@
-import React from "react";
-import { View, Card, Image, H2, Button, XStack, Paragraph, ScrollView, YStack } from "tamagui";
-import { Volume2 } from "@tamagui/lucide-icons";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
+import React, { useState } from "react";
+import { View, Card, Image, H2, Button, XStack, Paragraph, ScrollView, Spinner } from "tamagui";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../store";
 import Carousel from "react-native-snap-carousel";
 import { Dimensions } from "react-native";
 import { router } from "expo-router";
 import SoundBlock from "../components/SoundBlock";
+import WordService from "../http/services/WordService";
+import { removeUserSense } from "../store/userSenses/userSensesSlice";
+import { IWordImage } from "../types/WordInterface";
 
 const ModalFullSenseCard = () => {
     const sense = useSelector((state: RootState) => state.pickedSense.pickedSense);
+    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+    const dispatch = useDispatch<AppDispatch>();
+
+    async function handleDelete() {
+        setIsSubmitting(true);
+        try {
+            if (sense?.id) {
+                await WordService.deleteSense(sense.id);
+                dispatch(removeUserSense(sense.id));
+                router.back();
+            }
+        } catch (error) {
+            console.log("Во время удаления слова ");
+        }
+        setIsSubmitting(false);
+    }
+
     if (sense) {
-        const renderImage = ({ item }) => (
+        const renderImage = ({ item }: { item: IWordImage }) => (
             <Card flex={1} paddingTop={40}>
                 <View flex={1}>
                     <ScrollView>
@@ -27,20 +46,25 @@ const ModalFullSenseCard = () => {
                                 });
                             }}
                         />
-                        <Card.Header padding={20} paddingBottom={8}>
-                            <XStack alignItems="center" justifyContent="center" gap={20}>
+                        <Card.Header padding={20} paddingBottom={8} gap={10}>
+                            <XStack alignItems="center" gap={20}>
                                 <H2>{sense.word.word}</H2>
-                                {sense.part_of_speech && (
-                                    <Paragraph theme="alt2">{sense.part_of_speech}</Paragraph>
-                                )}
-                                <Paragraph theme="alt2">{sense.lvl}</Paragraph>
-                                <XStack flex={1}></XStack>
+                            </XStack>
+                            <XStack gap={10}>
                                 <SoundBlock label={"US"} soundUrl={sense.word.sound_us} />
                                 <SoundBlock label={"UK"} soundUrl={sense.word.sound_uk} />
+                                {sense.part_of_speech && (
+                                    <Paragraph fontSize={18} theme="alt2">
+                                        {sense.part_of_speech}
+                                    </Paragraph>
+                                )}
+                                <Paragraph fontSize={18} theme="alt2">
+                                    {sense.lvl}
+                                </Paragraph>
                             </XStack>
                         </Card.Header>
 
-                        <View marginLeft={20}>
+                        <View marginLeft={20} marginRight={10}>
                             <Paragraph margin={10} theme="alt1" fontSize={18}>
                                 {sense.definition}
                             </Paragraph>
@@ -59,7 +83,13 @@ const ModalFullSenseCard = () => {
                         <Button theme={"active"} onPress={() => router.back()}>
                             Back
                         </Button>
-                        <Button theme={"active"}>Delete</Button>
+                        <Button
+                            theme={"active"}
+                            onPress={handleDelete}
+                            icon={isSubmitting ? () => <Spinner /> : undefined}
+                        >
+                            Delete
+                        </Button>
                     </Card.Footer>
                 </View>
             </Card>

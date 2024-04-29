@@ -1,7 +1,7 @@
 import { Text, View, ScrollView, YStack } from "tamagui";
 import { RefreshControl, SafeAreaView, ScrollViewComponent } from "react-native";
 import LastLiterature from "../../components/Home/LastLiterature";
-import WordCards from "../../components/WordCards";
+import WordCards from "../../components/Home/WordCards";
 import { useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 

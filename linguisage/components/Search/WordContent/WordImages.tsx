@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Image, ScrollView, useTheme, View } from "tamagui";
-import type { IWordData, IWordImage } from "../../types/WordInterface";
+import type { IWordData, IWordImage } from "../../../types/WordInterface";
 import { useFocusEffect } from "expo-router";
 import { BackHandler } from "react-native";
 

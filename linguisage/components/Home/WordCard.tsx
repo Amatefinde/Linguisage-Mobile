@@ -1,7 +1,7 @@
 import React from "react";
 import { XStack, Card, H4, Paragraph } from "tamagui";
 import type { CardProps } from "tamagui";
-import { IUserSense } from "../types/UserSensesInterface";
+import { IUserSense } from "../../types/UserSensesInterface";
 
 interface IWordCardProps {
     sense: IUserSense;

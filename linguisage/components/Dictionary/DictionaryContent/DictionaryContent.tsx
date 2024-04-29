@@ -1,13 +1,31 @@
 import React from "react";
-import { View, Text } from "tamagui";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store";
-import { FlatList } from "react-native";
+import { FlatList, RefreshControl } from "react-native";
 import DictionarySenseCard from "./DictionarySenseCard";
-const DictionaryContent = () => {
+
+interface IDictionaryContentProps {
+    isLoading: boolean;
+    setUpdateSignal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DictionaryContent: React.FC<IDictionaryContentProps> = ({ isLoading, setUpdateSignal }) => {
     const senses = useSelector((state: RootState) => state.userSense.senses);
     return (
-        <FlatList data={senses} renderItem={({ item }) => <DictionarySenseCard sense={item} />} />
+        <FlatList
+            refreshControl={
+                <RefreshControl
+                    refreshing={isLoading}
+                    onRefresh={() => {
+                        console.log("делаем апдейт словаря");
+                        setUpdateSignal((prev) => !prev);
+                    }}
+                />
+            }
+            keyExtractor={(item) => item.id.toString()}
+            data={senses}
+            renderItem={({ item }) => <DictionarySenseCard sense={item} />}
+        />
     );
 };
 

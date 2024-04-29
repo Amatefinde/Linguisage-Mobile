@@ -6,15 +6,22 @@ import { IWordStatus } from "../../../types/IWordStatus";
 import WordService from "../../../http/services/WordService";
 import { setUserSenses } from "../../../store/userSenses/userSensesSlice";
 
-export default function DictionaryManagement() {
-    const dispatch = useDispatch<AppDispatch>();
+interface IDictionaryManagementProps {
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+    updateSignal: boolean;
+}
+
+const DictionaryManagement: React.FC<IDictionaryManagementProps> = ({
+    setIsLoading,
+    updateSignal,
+}) => {
     const [querySearch, setQuerySearch] = useState<string>("");
-    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [wordStatusFilter, setWordStatusFilter] = useState<IWordStatus[]>([
         "in_queue",
         "in_process",
     ]);
 
+    const dispatch = useDispatch<AppDispatch>();
     async function fetchSense() {
         setIsLoading(true);
         try {
@@ -26,15 +33,18 @@ export default function DictionaryManagement() {
 
     useEffect(() => {
         try {
+            console.log("фетчим новые слова в словарея");
             fetchSense();
         } catch (e) {
             console.log("Во время фетча словаря пользователя произошла ошибка:", e);
         }
-    }, [wordStatusFilter]);
+    }, [wordStatusFilter, updateSignal]);
     return (
         <XStack margin={20} gap={15}>
             <Input flex={1} />
             <Button theme={"active"}>Search</Button>
         </XStack>
     );
-}
+};
+
+export default DictionaryManagement;

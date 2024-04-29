@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, Paragraph, H2, H1, XStack } from "tamagui";
-import SoundBlock from "../SoundBlock";
-import { IWordData } from "../../types/WordInterface";
+import SoundBlock from "../../SoundBlock";
+import { IWordData } from "../../../types/WordInterface";
 import FullSenseCard from "../FullSenseCard";
 
 interface IWordDefinitionsProps {
@@ -13,7 +13,7 @@ const WordDefinitions: React.FC<IWordDefinitionsProps> = ({ wordData, setPickedS
     return (
         <ScrollView borderRadius={20}>
             <View gap={10}>
-                <XStack gap={20}>
+                <XStack gap={20} alignItems={"center"}>
                     <H2 marginLeft={10}>{wordData.word}</H2>
                     <View flex={1}></View>
                     <SoundBlock soundUrl={wordData.sound_us} label={"US"} />

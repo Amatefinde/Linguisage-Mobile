@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Input, Spinner, XStack, Button, YStack, H2, H4 } from "tamagui";
 import { IWordData } from "../types/WordInterface";
 import WordService from "../http/services/WordService";
-import WordContent from "../components/WordContent/WordContent";
+import WordContent from "../components/Search/WordContent/WordContent";
 import { AxiosError } from "axios";
 import useBack from "../hooks/useBack";
 import { useRouter } from "expo-router";

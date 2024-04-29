@@ -9599,6 +9599,7 @@ __metadata:
     react-native-screens: "npm:~3.29.0"
     react-native-snap-carousel: "npm:^3.9.1"
     react-native-svg: "npm:14.1.0"
+    react-native-virtualized-view: "npm:^1.0.0"
     react-native-web: "npm:^0.19.10"
     react-redux: "npm:^9.1.1"
     redux: "npm:^5.0.1"
@@ -11460,6 +11461,16 @@ __metadata:
     react: "*"
     react-native: "*"
   checksum: 2322cba59542ae552c25d222b6311024ea17daf2431c5ed9029d3682e61d2f8bc5428f496b237e81a6d1c6bdf29abeab0ed005cfbb48420f34e1cdffdc40823b
+  languageName: node
+  linkType: hard
+
+"react-native-virtualized-view@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "react-native-virtualized-view@npm:1.0.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: e647ca3556ceb85f0f6a3ae0359c1e628bd3603b178089ae2f122b71398536abb13a02a27755caa8ccbb8358bbda0a57425809a604eed2c076f0be54b0299718
   languageName: node
   linkType: hard
 

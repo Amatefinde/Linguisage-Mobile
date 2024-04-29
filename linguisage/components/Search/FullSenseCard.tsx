@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Card, H2, H3, Paragraph, Accordion, Square, View } from "tamagui";
 import type { CardProps } from "tamagui";
-import { ISense } from "../types/WordInterface";
+import { ISense } from "../../types/WordInterface";
 import { BookOpenCheck } from "@tamagui/lucide-icons";
 import { ChevronDown } from "@tamagui/lucide-icons";
-import AccordionExamples from "./AccordionExamples";
+import AccordionExamples from "../AccordionExamples";
 
 const FullSenseCard: React.FC<{ sense: ISense; cardProps?: CardProps }> = ({
     sense,

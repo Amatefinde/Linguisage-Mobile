@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import TrainService from "../http/services/TrainService";
-import { IUserSense } from "../types/UserSensesInterface";
+import TrainService from "../../http/services/TrainService";
+import { IUserSense } from "../../types/UserSensesInterface";
 import WordCard from "./WordCard";
 import type { CardProps } from "tamagui";
 import { View } from "tamagui";

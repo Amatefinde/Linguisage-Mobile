@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Image, ScrollView, View } from "tamagui";
-import type { IWordData } from "../../types/WordInterface";
+import type { IWordData } from "../../../types/WordInterface";
 import WordDefinitions from "./WordDefinitions";
 import WordImages from "./WordImages";
-import WordService from "../../http/services/WordService";
+import WordService from "../../../http/services/WordService";
 import { useFocusEffect, useRouter } from "expo-router";
-import useBack from "../../hooks/useBack";
+import useBack from "../../../hooks/useBack";
 import { BackHandler } from "react-native";
 
 interface IWordContentProps {

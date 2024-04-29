@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Paragraph } from "tamagui";
+import { View, Text, Paragraph, XStack } from "tamagui";
 import { Volume2 } from "@tamagui/lucide-icons";
 import { Audio } from "expo-av";
 
@@ -20,10 +20,10 @@ const SoundBlock: React.FC<ISoundBlockProps> = ({ soundUrl, label }) => {
         }
     };
     return (
-        <View onPress={playAudio}>
+        <XStack onPress={playAudio} gap={5}>
             <Volume2 />
             <Paragraph>{label}</Paragraph>
-        </View>
+        </XStack>
     );
 };
 

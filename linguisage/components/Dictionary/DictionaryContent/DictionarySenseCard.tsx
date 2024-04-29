@@ -46,17 +46,15 @@ const FullSenseCard: React.FC<{ sense: IUserSense; cardProps?: CardProps }> = ({
                     />
                 </View>
             )}
-            <Card.Header paddingBottom={5}>
-                <XStack alignItems="center" justifyContent="center" gap={20}>
+            <Card.Header paddingBottom={5} gap={5}>
+                <XStack alignItems="center" gap={20}>
                     <H3>{sense.word.word}</H3>
-                    {sense.part_of_speech && (
-                        <Paragraph theme="alt2">{sense.part_of_speech}</Paragraph>
-                    )}
-                    <Paragraph theme="alt2">{sense.lvl}</Paragraph>
-                    <XStack flex={1}></XStack>
+                </XStack>
+                <XStack gap={10}>
                     <SoundBlock label={"US"} soundUrl={sense.word.sound_us} />
                     <SoundBlock label={"UK"} soundUrl={sense.word.sound_uk} />
                 </XStack>
+
                 <Paragraph>{sense.definition}</Paragraph>
             </Card.Header>
 
