@@ -21,6 +21,7 @@ import { AppDispatch } from "../../../store";
 import { setPickedSense } from "../../../store/pickedSense/pickedSenseSlice";
 import { useRouter } from "expo-router";
 import SoundBlock from "../../SoundBlock";
+import AccordionExamples from "../../AccordionExamples";
 
 const FullSenseCard: React.FC<{ sense: IUserSense; cardProps?: CardProps }> = ({
     sense,
@@ -60,36 +61,7 @@ const FullSenseCard: React.FC<{ sense: IUserSense; cardProps?: CardProps }> = ({
             </Card.Header>
 
             {sense.examples.length > 0 ? (
-                <Accordion
-                    transform={[{ translateY: 3 }]}
-                    scaleX={1.02}
-                    overflow="hidden"
-                    type="multiple"
-                    borderWidth={0}
-                >
-                    <Accordion.Item value="a2">
-                        <Accordion.Trigger flexDirection="row" justifyContent="space-between">
-                            {({ open }: { open: boolean }) => (
-                                <>
-                                    <Paragraph marginLeft={5}>Examples:</Paragraph>
-                                    <Square animation="quick" rotate={open ? "180deg" : "0deg"}>
-                                        <ChevronDown size="$1" />
-                                    </Square>
-                                </>
-                            )}
-                        </Accordion.Trigger>
-                        <Accordion.Content>
-                            <Paragraph theme="alt2" marginLeft={5}>
-                                {sense.examples.map((example, i) => (
-                                    <Paragraph
-                                        key={example.id}
-                                        margin={10}
-                                    >{`\u2022 ${example.example}\n`}</Paragraph>
-                                ))}
-                            </Paragraph>
-                        </Accordion.Content>
-                    </Accordion.Item>
-                </Accordion>
+                <AccordionExamples sense={sense} />
             ) : (
                 <Paragraph></Paragraph>
             )}
