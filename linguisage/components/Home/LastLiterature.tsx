@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Button, Card, H3, H4, Image, Paragraph, XStack } from "tamagui";
 import type { CardProps } from "tamagui";
-import BookService from "../http/services/BookService";
-import IBook from "../types/IBook";
+import BookService from "../../http/services/BookService";
+import IBook from "../../types/IBook";
 
 interface ILastLiteratureProps {
     setIsLastBookLoading: React.Dispatch<React.SetStateAction<boolean>>;
