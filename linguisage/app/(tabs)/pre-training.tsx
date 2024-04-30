@@ -1,9 +1,10 @@
-import { Text, View } from "tamagui";
+import { ScrollView, Text, View } from "tamagui";
+import YourWords from "../../components/PreTraining/YourWords";
 
 export default function TabTwoScreen() {
     return (
-        <View flex={1} alignItems="center">
-            <Text fontSize={20}>pre-training</Text>
-        </View>
+        <ScrollView marginTop={45}>
+            <YourWords />
+        </ScrollView>
     );
 }

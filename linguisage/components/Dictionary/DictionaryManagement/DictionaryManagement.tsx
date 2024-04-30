@@ -33,7 +33,6 @@ const DictionaryManagement: React.FC<IDictionaryManagementProps> = ({
 
     useEffect(() => {
         try {
-            console.log("фетчим новые слова в словарея");
             fetchSense();
         } catch (e) {
             console.log("Во время фетча словаря пользователя произошла ошибка:", e);
