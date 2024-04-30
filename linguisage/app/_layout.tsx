@@ -47,6 +47,7 @@ function RootLayoutNav() {
                 <Provider store={store}>
                     <Stack>
                         <Stack.Screen name="index" options={{ headerShown: false }} />
+                        <Stack.Screen name="training" options={{ headerShown: false }} />
                         <Stack.Screen name="(authentication)" options={{ headerShown: false }} />
                         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
                         <Stack.Screen name="modal-add-word" options={{ title: "Add word" }} />

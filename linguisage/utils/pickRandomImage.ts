@@ -1,4 +1,4 @@
-import { IUserSense } from "../../../Linguisage-Frontend/src/types/UserSensesInterface.ts";
+import { IUserSense } from "../types/UserSensesInterface";
 
 function pickRandomImage(sense: IUserSense): string | null {
     if (sense.sense_images.length === 0 && sense.word_images.length === 0) {

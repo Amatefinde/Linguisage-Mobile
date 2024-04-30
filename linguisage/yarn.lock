@@ -1705,6 +1705,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@egjs/hammerjs@npm:^2.0.17":
+  version: 2.0.17
+  resolution: "@egjs/hammerjs@npm:2.0.17"
+  dependencies:
+    "@types/hammerjs": "npm:^2.0.36"
+  checksum: f695129d45edfcfd6c5f2d1d36186da36ffade013991972ce23721a6b7ad7f214ce282abc4023e3f6b63062620852a63e897b523f247804afc7acd188fee9d9d
+  languageName: node
+  linkType: hard
+
 "@emotion/is-prop-valid@npm:^0.8.2":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
@@ -3144,6 +3153,13 @@ __metadata:
   bin:
     react-native: build/bin.js
   checksum: f5998b846adfbacfaf863f7681a7b2af088883d6c0959da96167bd58e6bd2a80df32eb4ed84a9904f88ced3b7790d12676e80dc159d1c7ef96d847ab41efe7f4
+  languageName: node
+  linkType: hard
+
+"@react-native-community/slider@npm:^4.5.2":
+  version: 4.5.2
+  resolution: "@react-native-community/slider@npm:4.5.2"
+  checksum: 414a0074ecc20f314d53ce4cdcdc7d962395ffab183b618988bb2c2b7c49bb22c7f190dcff3588f5e9ad72b3d4f59d181003054087c5d6aef6331ec8fadb1963
   languageName: node
   linkType: hard
 
@@ -5425,6 +5441,13 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: ac545e377248039c596ef27d9f277b813507ebdd95d05f32fe7e9c67eb1ed567dafb4ba59f5fdcb6601dd7fd396ff9ba24f8c122e89cef096cdc17987c50a7fa
+  languageName: node
+  linkType: hard
+
+"@types/hammerjs@npm:^2.0.36":
+  version: 2.0.45
+  resolution: "@types/hammerjs@npm:2.0.45"
+  checksum: 8d7f8791789853a9461f6445e625f18922a823a61042161dde5513f4a2c15ecd6361fa6f9b457ce13bfb6b518489b892fedb9e2cebb4420523cb45f1cbb4ee88
   languageName: node
   linkType: hard
 
@@ -8515,6 +8538,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"hoist-non-react-statics@npm:^3.3.0":
+  version: 3.3.2
+  resolution: "hoist-non-react-statics@npm:3.3.2"
+  dependencies:
+    react-is: "npm:^16.7.0"
+  checksum: 1acbe85f33e5a39f90c822ad4d28b24daeb60f71c545279431dc98c312cd28a54f8d64788e477fe21dc502b0e3cf58589ebe5c1ad22af27245370391c2d24ea6
+  languageName: node
+  linkType: hard
+
 "hosted-git-info@npm:^3.0.2":
   version: 3.0.8
   resolution: "hosted-git-info@npm:3.0.8"
@@ -9570,6 +9602,7 @@ __metadata:
     "@babel/core": "npm:^7.23.3"
     "@expo/metro-runtime": "npm:~3.1.3"
     "@react-native-async-storage/async-storage": "npm:1.21.0"
+    "@react-native-community/slider": "npm:^4.5.2"
     "@react-navigation/native": "npm:^6.0.2"
     "@reduxjs/toolkit": "npm:^2.2.3"
     "@tamagui/config": "npm:^1.94.5"
@@ -9593,6 +9626,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-helmet-async: "npm:~2.0.4"
     react-native: "npm:0.73.4"
+    react-native-gesture-handler: "npm:^2.16.1"
     react-native-pager-view: "npm:6.2.3"
     react-native-reanimated: "npm:~3.6.2"
     react-native-safe-area-context: "npm:4.8.2"
@@ -11347,7 +11381,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.0, react-is@npm:^16.13.1":
+"react-is@npm:^16.13.0, react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 5aa564a1cde7d391ac980bedee21202fc90bdea3b399952117f54fb71a932af1e5902020144fb354b4690b2414a0c7aafe798eb617b76a3d441d956db7726fdf
@@ -11381,6 +11415,22 @@ __metadata:
     react-native-svg:
       optional: true
   checksum: c90c1c97f38c64f4a6d4afd187ed9dcf1315629c75393f141165e47038c909323031c8c6708265035f03d0f61d7d77eb1118b593da27a3e62e891a61eb5f7fe0
+  languageName: node
+  linkType: hard
+
+"react-native-gesture-handler@npm:^2.16.1":
+  version: 2.16.1
+  resolution: "react-native-gesture-handler@npm:2.16.1"
+  dependencies:
+    "@egjs/hammerjs": "npm:^2.0.17"
+    hoist-non-react-statics: "npm:^3.3.0"
+    invariant: "npm:^2.2.4"
+    lodash: "npm:^4.17.21"
+    prop-types: "npm:^15.7.2"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 7b56ebebb3e3b78f48069d18894fe602a34b8ba74ad7e49bc5de8ca4210196f819de4408890bab0e1f7ea66a5b8a3ec5e4c80d823e44224465f90aa7deab2129
   languageName: node
   linkType: hard
 

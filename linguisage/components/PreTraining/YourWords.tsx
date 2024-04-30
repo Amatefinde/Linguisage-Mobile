@@ -11,20 +11,37 @@ import {
     XStack,
     Checkbox,
     Label,
-    Slider,
     YStack,
     Paragraph,
     ToggleGroup,
     Text,
 } from "tamagui";
+import Slider from "@react-native-community/slider";
 import { CheckedState } from "@tamagui/checkbox-headless/src/useCheckbox";
+import { useRouter } from "expo-router";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../store";
+import {
+    ITrainingSettings,
+    setTrainingSettings,
+} from "../../store/trainingSettings/trainingSettings";
 
 const YourWords = () => {
     const [exerciseTypes, setExerciseTypes] = useState<"build_sentence"[]>([]);
     const [repeatWordPercentage, setRepeatWordPercentage] = useState<number>(20);
-    const [numberOfWords, setNumberOfWords] = useState<number>(10);
+    const [numberOfSense, setNumberOfSense] = useState<number>(10);
+    const router = useRouter();
+    const dispatch = useDispatch<AppDispatch>();
 
-    console.log(exerciseTypes);
+    function handleStartTrain() {
+        const trainingSettings: ITrainingSettings = {
+            buildSentence: exerciseTypes.includes("build_sentence"),
+            numberOfSense: numberOfSense,
+            percentOfLearnedWords: repeatWordPercentage,
+        };
+        dispatch(setTrainingSettings(trainingSettings));
+        router.navigate("/training");
+    }
     return (
         <Card margin={20} borderRadius={20}>
             <CardHeader>
@@ -48,45 +65,42 @@ const YourWords = () => {
                         </ToggleGroup.Item>
                     </ToggleGroup>
                 </XStack>
-                <XStack alignItems="center" gap={10} marginBottom={5}>
+                <XStack alignItems="center" marginBottom={5}>
                     <Paragraph>Learned Words Percentage</Paragraph>
-                    <Slider
-                        onValueChange={setRepeatWordPercentage}
-                        max={100}
-                        step={1}
-                        flex={1}
-                        value={[repeatWordPercentage]}
-                        theme={"blue"}
-                    >
-                        <Slider.Track>
-                            <Slider.TrackActive />
-                        </Slider.Track>
-                        <Slider.Thumb index={0} circular scale={0.6} elevate />
-                    </Slider>
-                    <Paragraph>{repeatWordPercentage}%</Paragraph>
+                    <View flex={1}>
+                        <Slider
+                            value={repeatWordPercentage}
+                            onValueChange={setRepeatWordPercentage}
+                            step={1}
+                            minimumValue={0}
+                            maximumValue={100}
+                            minimumTrackTintColor="#FFFFFF"
+                            maximumTrackTintColor="#000000"
+                            style={{ width: "100%" }}
+                        />
+                    </View>
+                    <Paragraph width={37}>{repeatWordPercentage}%</Paragraph>
                 </XStack>
                 <XStack alignItems="center" gap={10}>
                     <Paragraph>Number of words</Paragraph>
-                    <Slider
-                        onValueChange={setNumberOfWords}
-                        value={[numberOfWords]}
-                        max={30}
-                        min={3}
-                        step={1}
-                        flex={1}
-                        theme={"blue"}
-                    >
-                        <Slider.Track>
-                            <Slider.TrackActive />
-                        </Slider.Track>
-                        <Slider.Thumb index={0} circular scale={0.6} elevate />
-                    </Slider>
-                    <Paragraph>{numberOfWords}</Paragraph>
+                    <View flex={1}>
+                        <Slider
+                            value={numberOfSense}
+                            onValueChange={setNumberOfSense}
+                            step={1}
+                            minimumValue={3}
+                            maximumValue={30}
+                            style={{ width: "100%" }}
+                        />
+                    </View>
+                    <Paragraph>{numberOfSense}</Paragraph>
                 </XStack>
             </YStack>
             <CardFooter>
                 <View flex={1}></View>
-                <Button margin={20}>Start now</Button>
+                <Button margin={20} onPress={handleStartTrain}>
+                    Start now
+                </Button>
             </CardFooter>
         </Card>
     );
