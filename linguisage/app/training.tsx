@@ -114,9 +114,17 @@ const TrainingScreen: React.FC<ITrainingScreenProps> = ({}) => {
     if (isLoading) {
         renderedComponent = <Spinner />;
     } else if (!trainSenses.length) {
-        renderedComponent = <Paragraph>Your dictionary is empty</Paragraph>;
+        renderedComponent = (
+            <View flex={1}>
+                <Paragraph>Your dictionary is empty</Paragraph>
+            </View>
+        );
     } else if (trainSenses.length === currentSenseIndex && !!trainSenses.length) {
-        renderedComponent = <Paragraph>Training complete</Paragraph>;
+        renderedComponent = (
+            <View flex={1} justifyContent={"center"} alignItems={"center"}>
+                <H4>Training complete!</H4>
+            </View>
+        );
     } else {
         renderedComponent = component;
     }

@@ -22,6 +22,7 @@ import { setPickedSense } from "../../../store/pickedSense/pickedSenseSlice";
 import { useRouter } from "expo-router";
 import SoundBlock from "../../SoundBlock";
 import AccordionExamples from "../../AccordionExamples";
+import WordStatus from "./WordStatus";
 
 const FullSenseCard: React.FC<{ sense: IUserSense; cardProps?: CardProps }> = ({
     sense,
@@ -53,6 +54,7 @@ const FullSenseCard: React.FC<{ sense: IUserSense; cardProps?: CardProps }> = ({
                 <XStack gap={10}>
                     <SoundBlock label={"US"} soundUrl={sense.word.sound_us} />
                     <SoundBlock label={"UK"} soundUrl={sense.word.sound_uk} />
+                    <WordStatus sense={sense} />
                 </XStack>
 
                 <Paragraph>{sense.definition}</Paragraph>
