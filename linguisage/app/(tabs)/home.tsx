@@ -26,24 +26,20 @@ export default function TabOneScreen() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        gap: 20,
+                        gap: 15,
+                        margin: 10,
                     }}
                 >
                     <LastLiterature
+                        width={"100%"}
                         animation="bouncy"
-                        size="$4"
-                        width="95%"
                         height={200}
-                        scale={0.9}
-                        hoverStyle={{ scale: 0.925 }}
-                        pressStyle={{ scale: 0.875 }}
                         isLastBookLoading={isLastBookLoading}
                         setIsLastBookLoading={setIsLastBookLoading}
                         updateSignal={updateSignal}
                     />
 
                     <WordCards
-                        width="95%"
                         isWordsLoading={isWordsLoading}
                         setIsWordsLoading={setIsWordsLoading}
                         updateSignal={updateSignal}

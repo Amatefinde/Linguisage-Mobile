@@ -31,7 +31,7 @@ const WordCards = (cardProps: CardProps & IWordCardsProps) => {
 
     return (
         cardProps.isWordsLoading || (
-            <View gap={10}>
+            <View gap={15}>
                 {senses.map((sense) => (
                     <WordCard key={sense.id} sense={sense} {...cardProps} />
                 ))}

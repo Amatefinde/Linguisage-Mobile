@@ -28,7 +28,7 @@ const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
     }, [props.updateSignal]);
 
     const component = (
-        <Card size="$4" {...props} borderRadius={20}>
+        <Card {...props} borderRadius={20}>
             <XStack
                 height="100%"
                 padding={15}

@@ -1,4 +1,4 @@
-import { Button, Input, Text, View, XStack } from "tamagui";
+import { Button, Input, Text, ToggleGroup, View, XStack, YStack } from "tamagui";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../store";
@@ -38,11 +38,32 @@ const DictionaryManagement: React.FC<IDictionaryManagementProps> = ({
             console.log("Во время фетча словаря пользователя произошла ошибка:", e);
         }
     }, [wordStatusFilter, updateSignal]);
+
     return (
-        <XStack margin={20} gap={15}>
-            <Input flex={1} />
-            <Button theme={"active"}>Search</Button>
-        </XStack>
+        <YStack alignItems="center" gap="$3">
+            <XStack alignItems="center" gap="$3">
+                <Input flex={1} />
+                <Button theme="active">Search</Button>
+            </XStack>
+            <XStack>
+                <ToggleGroup
+                    value={wordStatusFilter}
+                    onValueChange={setWordStatusFilter}
+                    orientation="horizontal"
+                    type="multiple"
+                >
+                    <ToggleGroup.Item value="in_process">
+                        <Text>Current</Text>
+                    </ToggleGroup.Item>
+                    <ToggleGroup.Item value="in_queue">
+                        <Text>Upcoming</Text>
+                    </ToggleGroup.Item>
+                    <ToggleGroup.Item value="complete">
+                        <Text>Learned</Text>
+                    </ToggleGroup.Item>
+                </ToggleGroup>
+            </XStack>
+        </YStack>
     );
 };
 

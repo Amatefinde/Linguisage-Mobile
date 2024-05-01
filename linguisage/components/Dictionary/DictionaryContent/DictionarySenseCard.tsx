@@ -37,7 +37,13 @@ const FullSenseCard: React.FC<{ sense: IUserSense; cardProps?: CardProps }> = ({
     }
 
     return (
-        <Card {...cardProps} overflow={"hidden"} margin={20} marginTop={0} onPress={handlePress}>
+        <Card
+            {...cardProps}
+            overflow={"hidden"}
+            marginBottom={20}
+            marginTop={0}
+            onPress={handlePress}
+        >
             {sense.word_images && sense.word_images.length > 0 && (
                 <View style={styles.imageContainer}>
                     <Image
