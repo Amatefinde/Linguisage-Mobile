@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, ScrollView, Card, H2, Image, H4, Paragraph } from "tamagui";
+import { View, Text, ScrollView, Card, H2, Image, H4, Paragraph, Button } from "tamagui";
 import { IUserSense } from "../../types/UserSensesInterface";
 import pickRandomImage from "../../utils/pickRandomImage";
 import { maskWordInSenseExamples } from "../../utils/maskWordInSenseExamples";
+import { Rocket } from "@tamagui/lucide-icons";
+import { KeyboardAvoidingView } from "react-native";
 
 interface ITrainingCardProps {
     sense: IUserSense;
@@ -13,7 +15,9 @@ const TrainingCard: React.FC<ITrainingCardProps> = ({ sense }) => {
     const [imageType, setImageType] = useState<"horizontal" | "vertical" | "noImage" | "loading">(
         "loading",
     );
-    sense = maskWordInSenseExamples(sense);
+    const [numHints, setNumHints] = useState<number>(0);
+
+    sense = maskWordInSenseExamples(sense, numHints);
 
     useEffect(() => {
         const randomImageUrl = pickRandomImage(sense);
@@ -22,6 +26,10 @@ const TrainingCard: React.FC<ITrainingCardProps> = ({ sense }) => {
         } else {
             setPickedImageUrl(randomImageUrl);
         }
+    }, [sense.definition]);
+
+    useEffect(() => {
+        setNumHints(0);
     }, [sense.definition]);
 
     return (
@@ -52,6 +60,15 @@ const TrainingCard: React.FC<ITrainingCardProps> = ({ sense }) => {
                         >{`\u2022 ${example.example}\n`}</Paragraph>
                     ))}
                 </Paragraph>
+                <Button
+                    margin={20}
+                    borderRadius={15}
+                    disabled={sense.word.word.length - 1 === numHints}
+                    iconAfter={<Rocket />}
+                    onPress={() => setNumHints((e) => e + 1)}
+                >
+                    Get a Hint
+                </Button>
             </Card>
         </View>
     );

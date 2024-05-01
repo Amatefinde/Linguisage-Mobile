@@ -65,7 +65,7 @@ const YourWords = () => {
                         </ToggleGroup.Item>
                     </ToggleGroup>
                 </XStack>
-                <XStack alignItems="center" marginBottom={5}>
+                <XStack alignItems="center" marginBottom={5} justifyContent={"space-between"}>
                     <Paragraph>Learned Words Percentage</Paragraph>
                     <View flex={1}>
                         <Slider

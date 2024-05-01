@@ -10,6 +10,8 @@ import {
     XStack,
     Paragraph,
     Button,
+    H3,
+    H4,
 } from "tamagui";
 import TrainingCard from "../components/Training/TrainingCard";
 import TrainService from "../http/services/TrainService";
@@ -20,6 +22,7 @@ import trainingSettings from "../store/trainingSettings/trainingSettings";
 import { RootState } from "../store";
 import { Rocket, X } from "@tamagui/lucide-icons";
 import { useRouter } from "expo-router";
+import { KeyboardAvoidingView } from "react-native";
 
 interface ITrainingScreenProps {}
 
@@ -32,7 +35,6 @@ const TrainingScreen: React.FC<ITrainingScreenProps> = ({}) => {
     const [userInput, setUserInput] = useState<string>("");
     const [isCorrect, setIsCorrect] = useState<boolean>(true);
     const progressValue = (currentSenseIndex / trainingSettings.numberOfSense) * 100;
-
     useEffect(() => {
         async function fetchTrain() {
             setIsLoading(true);
@@ -84,12 +86,13 @@ const TrainingScreen: React.FC<ITrainingScreenProps> = ({}) => {
                     />
                 </Progress>
             </XStack>
-            <ScrollView contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}>
+            <ScrollView
+                keyboardShouldPersistTaps="handled"
+                contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
+            >
                 <YStack gap={10} padding={10}>
                     <TrainingCard sense={trainSenses[currentSenseIndex]} />
-                    <Button borderRadius={15} iconAfter={<Rocket />}>
-                        Get a Hint
-                    </Button>
+
                     <Input
                         borderRadius={15}
                         placeholder={"Enter word"}
@@ -97,6 +100,9 @@ const TrainingScreen: React.FC<ITrainingScreenProps> = ({}) => {
                         onChangeText={setUserInput}
                         onSubmitEditing={handleCheck}
                     />
+                    <Button borderRadius={15} theme={"active"} themeInverse onPress={handleCheck}>
+                        <H4>Check</H4>
+                    </Button>
                 </YStack>
                 <Paragraph></Paragraph>
                 <Paragraph></Paragraph>
