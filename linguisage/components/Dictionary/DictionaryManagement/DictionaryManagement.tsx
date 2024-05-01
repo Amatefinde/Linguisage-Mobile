@@ -27,10 +27,7 @@ const DictionaryManagement: React.FC<IDictionaryManagementProps> = ({
     setIsLoading,
     updateSignal,
 }) => {
-    const [wordStatusFilter, setWordStatusFilter] = useState<IWordStatus[]>([
-        "in_queue",
-        "in_process",
-    ]);
+    const [wordStatusFilter, setWordStatusFilter] = useState<IWordStatus[]>([]);
     const [sort, setSort] = useState<string>("new");
     const [query, setQuery] = useState<string>("");
 
@@ -59,7 +56,12 @@ const DictionaryManagement: React.FC<IDictionaryManagementProps> = ({
     return (
         <YStack alignItems="center" gap="$3">
             <XStack alignItems="center" gap="$3">
-                <Input flex={1} value={query} onChangeText={setQuery} />
+                <Input
+                    flex={1}
+                    value={query}
+                    onChangeText={setQuery}
+                    onSubmitEditing={fetchSense}
+                />
                 <Button theme="active" onPress={fetchSense}>
                     Search
                 </Button>
