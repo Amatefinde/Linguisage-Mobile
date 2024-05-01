@@ -21,8 +21,9 @@ import { useSelector } from "react-redux";
 import trainingSettings from "../store/trainingSettings/trainingSettings";
 import { RootState } from "../store";
 import { Rocket, X } from "@tamagui/lucide-icons";
-import { useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { KeyboardAvoidingView } from "react-native";
+import TrainingComplete from "../components/Training/TrainingComplete";
 
 interface ITrainingScreenProps {}
 
@@ -57,7 +58,7 @@ const TrainingScreen: React.FC<ITrainingScreenProps> = ({}) => {
         const sense = trainSenses[currentSenseIndex];
         const currentWord = sense.word.word;
 
-        if (userInput.toLowerCase() === currentWord.toLowerCase()) {
+        if (userInput.toLowerCase().trim() === currentWord.toLowerCase().trim()) {
             TrainService.addAnswer(sense.id, true).then((e) => e);
             setCurrentSenseIndex((prev) => prev + 1);
             setUserInput("");
@@ -120,11 +121,7 @@ const TrainingScreen: React.FC<ITrainingScreenProps> = ({}) => {
             </View>
         );
     } else if (trainSenses.length === currentSenseIndex && !!trainSenses.length) {
-        renderedComponent = (
-            <View flex={1} justifyContent={"center"} alignItems={"center"}>
-                <H4>Training complete!</H4>
-            </View>
-        );
+        renderedComponent = <TrainingComplete />;
     } else {
         renderedComponent = component;
     }

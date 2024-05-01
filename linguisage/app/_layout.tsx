@@ -42,9 +42,9 @@ function RootLayoutNav() {
     const colorScheme = useColorScheme();
 
     return (
-        <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
-            <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-                <Provider store={store}>
+        <Provider store={store}>
+            <TamaguiProvider config={config} defaultTheme={colorScheme as any}>
+                <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
                     <Stack>
                         <Stack.Screen name="index" options={{ headerShown: false }} />
                         <Stack.Screen name="training" options={{ headerShown: false }} />
@@ -60,8 +60,8 @@ function RootLayoutNav() {
                             options={{ headerShown: false }}
                         />
                     </Stack>
-                </Provider>
-            </ThemeProvider>
-        </TamaguiProvider>
+                </ThemeProvider>
+            </TamaguiProvider>
+        </Provider>
     );
 }
