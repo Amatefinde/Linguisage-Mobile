@@ -88,7 +88,7 @@ const SignInScreen = () => {
                     </Stack>
                     <Button
                         onPress={handleLogin}
-                        icon={isSubmitting ? () => <Spinner /> : undefined}
+                        iconAfter={isSubmitting ? () => <Spinner /> : undefined}
                     >
                         <Text>Login</Text>
                     </Button>

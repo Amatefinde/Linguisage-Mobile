@@ -1,5 +1,4 @@
 import { Link, Tabs } from "expo-router";
-
 import { Home, BookOpen, Target, Settings } from "@tamagui/lucide-icons";
 
 export default function TabLayout() {
@@ -22,7 +21,7 @@ export default function TabLayout() {
                     title: "Home",
                     tabBarIcon: ({ color, focused }) => (
                         <Home color={focused ? "#5e8deb" : "#333"} />
-                    ), // Изменение цвета иконки
+                    ),
                 }}
             />
             <Tabs.Screen
@@ -32,7 +31,7 @@ export default function TabLayout() {
                     title: "Dictionary",
                     tabBarIcon: ({ color, focused }) => (
                         <BookOpen color={focused ? "#5e8deb" : "#333"} />
-                    ), // Изменение цвета иконки
+                    ),
                 }}
             />
             <Tabs.Screen
@@ -42,7 +41,7 @@ export default function TabLayout() {
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <Target color={focused ? "#5e8deb" : "#333"} />
-                    ), // Изменение цвета иконки
+                    ),
                 }}
             />
             <Tabs.Screen
@@ -52,7 +51,7 @@ export default function TabLayout() {
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <Settings color={focused ? "#5e8deb" : "#333"} />
-                    ), // Изменение цвета иконки
+                    ),
                 }}
             />
         </Tabs>

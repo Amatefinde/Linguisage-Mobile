@@ -12,6 +12,7 @@ interface ILastLiteratureProps {
 
 const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
     const [lastBook, setLastBook] = useState<IBook>();
+    const [errorCode, setErrorCode] = useState<number>(200);
     useEffect(() => {
         async function fetchLastBook() {
             props.setIsLastBookLoading(true);
@@ -19,7 +20,8 @@ const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
                 const fetchedLastBook = await BookService.getLastBook();
                 setLastBook(fetchedLastBook);
             } catch (e) {
-                console.log("Во время фетча последней книги произошла ошибка", e);
+                console.log("Во время фетча последней книги произошла ошибка: ", e);
+                setErrorCode(parseInt(e?.response?.status));
             }
             props.setIsLastBookLoading(false);
         }
@@ -53,6 +55,9 @@ const LastLiterature: React.FC<ILastLiteratureProps & CardProps> = (props) => {
             </XStack>
         </Card>
     );
+    if (errorCode === 404) {
+        return null;
+    }
     return props.isLastBookLoading || component;
 };
 
