@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const $api = axios.create({
     withCredentials: true,
     responseType: "json",
-    baseURL: "https://api.linguisage.ru:9300/api/v1/",
+    baseURL: "https://linguisage.ru:9300/api/v1/",
 });
 
 $api.interceptors.request.use(async (config) => {
